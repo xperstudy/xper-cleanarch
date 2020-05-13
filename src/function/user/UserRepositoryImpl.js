@@ -7,7 +7,7 @@ var UserRepositoryImpl = /** @class */ (function () {
     UserRepositoryImpl.prototype.save = function (user) {
     };
     UserRepositoryImpl.prototype.get = function (username) {
-        return new User_1.User();
+        return new User_1.User("aaa", "dkjf");
     };
     return UserRepositoryImpl;
 }());
