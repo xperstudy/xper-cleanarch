@@ -16,7 +16,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.post('/users', function (req, res) {
     console.log('Hello2:' + req.body);
-    userController.test();
-    // userController.create(req,res);
+    userController.create(req, res);
 });
 app.listen(3000);

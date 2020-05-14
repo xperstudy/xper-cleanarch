@@ -4,8 +4,4 @@ export class UserController {
         console.log("test");
         console.log(req.param);
     }
-
-    public test() {
-        console.log('test');
-    }
 }

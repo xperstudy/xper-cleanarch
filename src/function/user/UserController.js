@@ -7,9 +7,6 @@ var UserController = /** @class */ (function () {
         console.log("test");
         console.log(req.param);
     };
-    UserController.prototype.test = function () {
-        console.log('test');
-    };
     return UserController;
 }());
 exports.UserController = UserController;
