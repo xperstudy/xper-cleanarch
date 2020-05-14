@@ -2,6 +2,7 @@ import {LoginController} from "./login/LoginController";
 import {UserController} from "./user/UserController";
 import {AuthService} from "./login/AuthService";
 import {MemoryUserRepository} from "./user/MemoryUserRepository";
+import { UserService } from "./user/UserService";
 
 const express = require('express');
 const app = express();
@@ -10,7 +11,8 @@ const app = express();
 const userRepository = new MemoryUserRepository();
 const authService = new AuthService(userRepository);
 const loginController = new LoginController(authService);
-const userController = new UserController();
+const userService = new UserService();
+const userController = new UserController(userService);
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());

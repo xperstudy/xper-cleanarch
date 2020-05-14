@@ -1,9 +1,30 @@
-import { expect } from 'chai';
+import { expect, assert } from 'chai';
 import { app } from '../../src/function/app';
 
 const request = require('supertest');
 
-describe('First ', function() {
+describe('First ', function () {
+
+    it('사용자 이름이 이미 등록된 경우 “이미 등록된 사용자입니다.” 라는 메시지를 출력한다.', function () {
+        request(app).post('/users')
+            .send({ username: 'admin', password: 'admin1234', confirm: 'admin1234' })
+            .set('Accept', 'application/json')
+            .expect(500)
+            .expect('Content-Type', /json/)
+            .type('application/json')
+            .end(function (err: Error, res: any) {
+
+                // 1. assert (error.message, "이미 등록된 사용자입니다.");
+
+                if (!res.error)
+                    throw new Error("에러가 아님");
+                    
+                if (res.error != "이미 등록된 사용자입니다.")
+                    throw new Error("스트링 동일하지 않음");
+            });
+    });
+
+    /**
     it('register user', function() {
         request(app).post('/users')
             .send({ username: 'user01', password: 'pw', confirm: 'pw' })
@@ -28,4 +49,6 @@ describe('First ', function() {
             .expect('/login')
             .end(function(err:Error,res: any) { if ( err ) throw err; });
     })
+     */
+
 })

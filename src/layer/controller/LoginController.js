@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.LoginController = void 0;
 var LoginController = /** @class */ (function () {
     function LoginController() {
     }
