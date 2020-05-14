@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { app } from '../src/function/app';
+import { app } from '../../src/function/app';
 
 const request = require('supertest');
 
@@ -19,7 +19,7 @@ describe('First ', function() {
     })
 
     it('/hello', function() {
-        request(app).get('/hello').expect(200).end(function(err:Error,res: any) { if ( err ) throw err; });
+        request(app).get('/hello').expect(200).end(function(err:Error,res) { if ( err ) throw err; });
     })
 
     it('/login', function() {

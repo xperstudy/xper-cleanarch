@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var chai_1 = require("chai");
-var app_1 = require("../src/function/app");
+var app_1 = require("../../src/function/app");
 var request = require('supertest');
 describe('First ', function () {
     it('register user', function () {
