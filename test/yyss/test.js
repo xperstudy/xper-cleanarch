@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var chai_1 = require("chai");
 var app_1 = require("../../src/function/app");
 var request = require('supertest');
 describe('First ', function () {
@@ -12,10 +13,14 @@ describe('First ', function () {
             .type('application/json')
             .end(function (err, res) {
             // 1. assert (error.message, "이미 등록된 사용자입니다.");
+            console.log(res);
+            console.log(res.error);
             if (!res.error)
-                throw new Error("에러가 아님");
+                throw new chai_1.AssertionError("에러가 아님");
             if (res.error != "이미 등록된 사용자입니다.")
-                throw new Error("스트링 동일하지 않음");
+                throw new chai_1.AssertionError("스트링 동일하지 않음");
+            else
+                console.log(res.error);
         });
     });
     /**

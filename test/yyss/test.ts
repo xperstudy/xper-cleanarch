@@ -1,4 +1,4 @@
-import { expect, assert } from 'chai';
+import { expect, assert, AssertionError } from 'chai';
 import { app } from '../../src/function/app';
 
 const request = require('supertest');
@@ -15,12 +15,16 @@ describe('First ', function () {
             .end(function (err: Error, res: any) {
 
                 // 1. assert (error.message, "이미 등록된 사용자입니다.");
+                console.log(res)
+                console.log(res.error)
 
                 if (!res.error)
-                    throw new Error("에러가 아님");
+                    throw new AssertionError("에러가 아님");
                     
                 if (res.error != "이미 등록된 사용자입니다.")
-                    throw new Error("스트링 동일하지 않음");
+                    throw new AssertionError("스트링 동일하지 않음");
+                else 
+                    console.log(res.error)
             });
     });
 

@@ -18,7 +18,7 @@ var userController = new UserController_1.UserController(userService);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.post('/users', function (req, res) {
-    console.log('Hello2:' + req.body);
+    console.log('Hello3:' + req.body);
     userController.create(req, res);
 });
 app.listen(3000);
